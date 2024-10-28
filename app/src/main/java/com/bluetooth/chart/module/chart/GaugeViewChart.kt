@@ -55,21 +55,22 @@ class GaugeViewChart(context: Context, attrs: AttributeSet) : View(context, attr
         val height = height.toFloat()
 
         // 게이지의 범위 그리기 (기본 배경색)
-        val rect = RectF(40f, 30f, width - 40f, height+60)
+        val rect = RectF(60f, 60f, width - 60f, height+80f)
         canvas.drawArc(rect, 180f, 180f, false, baseGaugePaint) // 전체 게이지
 
         // 값에 해당하는 부분 그리기 (동적 색상)
         val sweepAngle = (value / 100f) * 180f
         canvas.drawArc(rect, 180f, sweepAngle, false, gaugePaint) // 값에 따른 게이지
 
-//        // 바늘 그리기
+//        // 바늘 그리기 (수정된 위치 및 각도 계산)
 //        val angle = 180f + sweepAngle
 //        val centerX = width / 2f
-//        val centerY = height + 50f
+//        val centerY = height - 50f // 바늘의 중심 Y 좌표 조정
 //        val needleLength = width / 2.5f
 //        val needleX = (centerX + cos(Math.toRadians(angle.toDouble())) * needleLength).toFloat()
 //        val needleY = (centerY + sin(Math.toRadians(angle.toDouble())) * needleLength).toFloat()
-
+//
 //        canvas.drawLine(centerX, centerY, needleX, needleY, needlePaint) // 바늘 그리기
+
     }
 }

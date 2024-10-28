@@ -1,9 +1,13 @@
 package com.bluetooth.chart.activity
 
 import CheckPermissionManager
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.ActivityInfo
+import android.os.Build
 import android.os.Bundle
+import android.view.View
+import android.view.WindowInsets
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -14,11 +18,15 @@ class IntroActivity : AppCompatActivity(), PermissionResultCallback {
     final lateinit var binding: ActivityIntroBinding
 
     val REQUEST_ALL_PERMISSION = 2
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-
+        // 풀 스크린 설정
+        window.decorView.systemUiVisibility = (
+                View.SYSTEM_UI_FLAG_FULLSCREEN
+                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                )
         binding  = ActivityIntroBinding.inflate(layoutInflater)
         setContentView(binding.root)
        /* ViewCompat.setOnApplyWindowInsetsListener(binding.intro) { v, insets ->
@@ -26,7 +34,6 @@ class IntroActivity : AppCompatActivity(), PermissionResultCallback {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }*/
-
 
 
         binding.btnNext.setOnClickListener {

@@ -5,696 +5,768 @@
     android:id="@+id/chartMain"
 
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <ImageView
-        android:scaleType="centerCrop"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/background_01"
-        android:layout_width="0dp"
-        android:layout_height="0dp"/>
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/group1Layout"
-
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-
-        <ImageView
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:background="@drawable/bg_data_01"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"/>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            app:layout_constraintHorizontal_chainStyle="packed"
-            android:id="@+id/group1DataAreaLayout"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/group2DataAreaLayout"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <ImageView
-                android:layout_marginStart="10dp"
-                android:id="@+id/ivCurrentOuput"
-                app:layout_constraintTop_toTopOf="@id/clCurrentOuput"
-                app:layout_constraintBottom_toBottomOf="@id/clCurrentOuput"
-                app:layout_constraintStart_toStartOf="parent"
-                android:background="@drawable/ic_current_output"
-                android:layout_width="30dp"
-                android:layout_height="30dp"/>
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/clCurrentOuput"
-                android:paddingEnd="10dp"
-                app:layout_constraintStart_toEndOf="@id/ivCurrentOuput"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_width="0dp"
-                android:layout_height="match_parent">
-                <TextView
-                    android:layout_marginTop="3dp"
-                    android:layout_marginStart="5dp"
-                    android:text="현재출력"
-                    android:textColor="@color/color_01"
-                    android:textSize="12sp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:id="@+id/tvOutPutTitle"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginTop="5dp"
-                    android:text="0.0"
-                    android:textColor="@color/white"
-                    android:textSize="15sp"
-                    app:layout_constraintBottom_toBottomOf="@id/tvOutPutMsg"
-                    android:id="@+id/tvCurrentOutPut"
-                    app:layout_constraintEnd_toStartOf="@id/tvOutPutMsg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_marginTop="3dp"
-                    android:text="kW"
-                    android:textColor="@color/color_01"
-                    android:textSize="10sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvOutPutTitle"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:id="@+id/tvOutPutMsg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/group2DataAreaLayout"
-            app:layout_constraintStart_toEndOf="@id/group1DataAreaLayout"
-            app:layout_constraintEnd_toStartOf="@id/group3DataAreaLayout"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <ImageView
-                android:id="@+id/ivTodayPower"
-                app:layout_constraintTop_toTopOf="@id/clTodayPower"
-                app:layout_constraintBottom_toBottomOf="@id/clTodayPower"
-                app:layout_constraintStart_toStartOf="parent"
-                android:background="@drawable/ic_power_generation"
-                android:layout_width="30dp"
-                android:layout_height="30dp"/>
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/clTodayPower"
-                android:paddingEnd="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/ivTodayPower"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_width="0dp"
-                android:layout_height="match_parent">
-                <TextView
-                    android:layout_marginTop="3dp"
-                    android:layout_marginStart="5dp"
-                    android:text="금일발전량"
-                    android:textColor="@color/color_02"
-                    android:textSize="12sp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:id="@+id/tvTodayPowerTitle"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginTop="5dp"
-                    android:text="0.0"
-                    android:textColor="@color/white"
-                    android:textSize="15sp"
-                    app:layout_constraintBottom_toBottomOf="@id/tvTodayPowerMsg"
-                    android:id="@+id/tvTodayPower"
-                    app:layout_constraintEnd_toStartOf="@id/tvTodayPowerMsg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_marginTop="3dp"
-                    android:text="kWh"
-                    android:textColor="@color/color_02"
-                    android:textSize="10sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvTodayPowerTitle"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:id="@+id/tvTodayPowerMsg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/group3DataAreaLayout"
-            app:layout_constraintStart_toEndOf="@id/group2DataAreaLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <ImageView
-                app:layout_constraintStart_toStartOf="parent"
-                android:id="@+id/ivTodayPowerTime"
-                app:layout_constraintTop_toTopOf="@id/clTodayPowerTime"
-                app:layout_constraintBottom_toBottomOf="@id/clTodayPowerTime"
-                android:background="@drawable/ic_power_generation_time"
-                android:layout_width="30dp"
-                android:layout_height="30dp"/>
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/clTodayPowerTime"
-                android:paddingEnd="10dp"
-                app:layout_constraintStart_toEndOf="@id/ivTodayPowerTime"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_width="0dp"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:layout_marginTop="3dp"
-                    android:layout_marginStart="5dp"
-                    android:text="금일발전시간"
-                    android:textColor="@color/color_02"
-                    android:textSize="12sp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:id="@+id/tvTodayPowerTimeTitle"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginTop="5dp"
-                    android:text="0.0"
-                    android:textColor="@color/white"
-                    android:textSize="15sp"
-                    app:layout_constraintBottom_toBottomOf="@id/tvTodayPowerTimeMsg"
-                    android:id="@+id/tvTodayPowerTime"
-                    app:layout_constraintEnd_toStartOf="@id/tvTodayPowerTimeMsg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_marginTop="3dp"
-                    android:text="Hour"
-                    android:textColor="@color/color_02"
-                    android:textSize="10sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvTodayPowerTimeTitle"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:id="@+id/tvTodayPowerTimeMsg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.core.widget.NestedScrollView
-        app:layout_constraintTop_toBottomOf="@id/group1Layout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:fillViewport="true"
-        android:scrollbarStyle="outsideOverlay"
-        android:scrollbarSize="2dp">
+        android:layout_width="0dp"
+        android:layout_height="0dp">
+        <ImageView
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/background_01"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/group1Layout"
+            app:layout_constraintBottom_toTopOf="@id/group2Layout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="50dp">
 
+            <ImageView
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@drawable/bg_data_01"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                app:layout_constraintHorizontal_chainStyle="packed"
+                android:id="@+id/group1DataAreaLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/group2DataAreaLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/ivCurrentOuput"
+                    app:layout_constraintTop_toTopOf="@id/clCurrentOuput"
+                    app:layout_constraintBottom_toBottomOf="@id/clCurrentOuput"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:background="@drawable/ic_current_output"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"/>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clCurrentOuput"
+                    android:paddingEnd="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ivCurrentOuput"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_marginTop="3dp"
+                        android:layout_marginStart="5dp"
+                        android:text="현재출력"
+                        android:textColor="@color/color_01"
+                        android:textSize="14sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:id="@+id/tvOutPutTitle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="0.0"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tvOutPutMsg"
+                        android:id="@+id/tvCurrentOutPut"
+                        app:layout_constraintEnd_toStartOf="@id/tvOutPutMsg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_marginTop="3dp"
+                        android:text="kW"
+                        android:textColor="@color/color_01"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvOutPutTitle"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:id="@+id/tvOutPutMsg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/group2Layout"
+                android:id="@+id/group2DataAreaLayout"
+                app:layout_constraintStart_toEndOf="@id/group1DataAreaLayout"
+                app:layout_constraintEnd_toStartOf="@id/group3DataAreaLayout"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/ivTodayPower"
+                    app:layout_constraintTop_toTopOf="@id/clTodayPower"
+                    app:layout_constraintBottom_toBottomOf="@id/clTodayPower"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:background="@drawable/ic_power_generation"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"/>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clTodayPower"
+                    android:paddingEnd="10dp"
+                    app:layout_constraintStart_toEndOf="@id/ivTodayPower"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_marginTop="3dp"
+                        android:layout_marginStart="5dp"
+                        android:text="금일발전량"
+                        android:textColor="@color/color_02"
+                        android:textSize="14sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:id="@+id/tvTodayPowerTitle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="0.0"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tvTodayPowerMsg"
+                        android:id="@+id/tvTodayPower"
+                        app:layout_constraintEnd_toStartOf="@id/tvTodayPowerMsg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_marginTop="3dp"
+                        android:text="kWh"
+                        android:textColor="@color/color_02"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvTodayPowerTitle"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:id="@+id/tvTodayPowerMsg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/group3DataAreaLayout"
+                app:layout_constraintStart_toEndOf="@id/group2DataAreaLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <ImageView
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/ivTodayPowerTime"
+                    app:layout_constraintTop_toTopOf="@id/clTodayPowerTime"
+                    app:layout_constraintBottom_toBottomOf="@id/clTodayPowerTime"
+                    android:background="@drawable/ic_power_generation_time"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"/>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clTodayPowerTime"
+                    android:paddingEnd="10dp"
+                    app:layout_constraintStart_toEndOf="@id/ivTodayPowerTime"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_marginTop="3dp"
+                        android:layout_marginStart="5dp"
+                        android:text="금일발전시간"
+                        android:textColor="@color/color_02"
+                        android:textSize="14sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:id="@+id/tvTodayPowerTimeTitle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="0.0"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tvTodayPowerTimeMsg"
+                        android:id="@+id/tvTodayPowerTime"
+                        app:layout_constraintEnd_toStartOf="@id/tvTodayPowerTimeMsg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_marginTop="3dp"
+                        android:text="Hour"
+                        android:textColor="@color/color_02"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvTodayPowerTimeTitle"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:id="@+id/tvTodayPowerTimeMsg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/group2Layout"
+            app:layout_constraintBottom_toTopOf="@id/chart4Group"
+            app:layout_constraintTop_toBottomOf="@id/group1Layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintVertical_weight="1.2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_data_power_status_02">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/group2TitleArea"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_data_power_status_02">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/group2TitleArea"
+                android:layout_height="18dp">
+                <ImageView
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/ivPowerStatus"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_width="match_parent"
-                    android:layout_height="18dp">
-                    <ImageView
-                        android:layout_marginStart="10dp"
-                        android:id="@+id/ivPowerStatus"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:src="@drawable/ic_power_status"
-                        android:layout_width="10dp"
-                        android:layout_height="10dp"/>
-                    <TextView
-                        android:layout_marginStart="3dp"
-                        android:text="Power Status"
-                        android:textColor="@color/white"
-                        android:textSize="8sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:id="@+id/tvPoworStatusTitle"
-                        app:layout_constraintStart_toEndOf="@id/ivPowerStatus"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <TextView
-                        android:layout_marginStart="3dp"
-                        android:text="(현재발전기준 : INV)"
-                        android:textColor="@color/color_02"
-                        android:textSize="7sp"
-                        app:layout_constraintTop_toTopOf="@id/tvPoworStatusTitle"
-                        app:layout_constraintBottom_toBottomOf="@id/tvPoworStatusTitle"
-                        android:id="@+id/tvPoworStatusSubTitle"
-                        app:layout_constraintStart_toEndOf="@id/tvPoworStatusTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    app:layout_constraintTop_toBottomOf="@id/group2TitleArea"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_width="match_parent"
-                    android:layout_height="85dp">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintHorizontal_chainStyle="packed"
-                        android:id="@+id/chart1Layout"
-                        app:layout_constraintEnd_toStartOf="@id/chart2Layout"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent">
-                        <TextView
-                            android:layout_marginTop="4dp"
-                            android:includeFontPadding="false"
-                            app:layout_constraintTop_toTopOf="parent"
-                            android:text="인버터(DC/AC)변환효율"
-                            android:textColor="@color/color_3"
-                            android:textSize="12sp"
-                            android:id="@+id/tvInverterPerTitle"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                        <com.bluetooth.chart.module.chart.GaugeViewChart
-                            android:id="@+id/chart1"
-                            android:layout_marginTop="17dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_width="120dp"
-                            android:layout_height="58dp"
-                            app:gaugeColor="@color/color_gauge_chart"
-                            app:baseGaugeColor="@color/color_base_gauge_chart_bg"
-                            android:layout_gravity="center" />
-
-                        <TextView
-                            android:layout_marginBottom="10dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            android:includeFontPadding="false"
-                            android:text="0 %"
-                            android:textColor="@color/white"
-                            android:textSize="13sp"
-                            android:id="@+id/tvInverterPer"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        app:layout_constraintStart_toEndOf="@id/chart1Layout"
-                        app:layout_constraintEnd_toStartOf="@id/chart3Layout"
-                        android:layout_marginStart="10dp"
-                        android:id="@+id/chart2Layout"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent">
-                        <TextView
-                            android:layout_marginTop="4dp"
-                            android:includeFontPadding="false"
-                            app:layout_constraintTop_toTopOf="parent"
-                            android:text="인버터(DC/AC)변환효율"
-                            android:textColor="@color/color_4"
-                            android:textSize="12sp"
-                            android:id="@+id/tvCurrentPowerOutputTitle"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-                        <com.bluetooth.chart.module.chart.GaugeViewChart
-                            android:id="@+id/chart2"
-                            android:layout_marginTop="17dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_width="120dp"
-                            android:layout_height="58dp"
-                            app:gaugeColor="@color/color_gauge_chart_02"
-                            app:baseGaugeColor="@color/color_base_gauge_chart_bg_02"
-                            android:layout_gravity="center" />
-
-                        <TextView
-                            android:layout_marginBottom="10dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            android:includeFontPadding="false"
-                            android:text="0 kW"
-                            android:textColor="@color/white"
-                            android:textSize="13sp"
-                            android:id="@+id/tvCurrentPowerOutputPer"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/chart2Layout"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        android:layout_marginStart="10dp"
-                        android:id="@+id/chart3Layout"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent">
-                        <TextView
-                            android:layout_marginTop="4dp"
-                            android:includeFontPadding="false"
-                            app:layout_constraintTop_toTopOf="parent"
-                            android:text="발전효율"
-                            android:textColor="@color/color_5"
-                            android:textSize="12sp"
-                            android:id="@+id/tvPowerGenerationEfciencyTitle"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-                        <com.bluetooth.chart.module.chart.GaugeViewChart
-                            android:id="@+id/chart3"
-                            android:layout_marginTop="17dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_width="120dp"
-                            android:layout_height="58dp"
-                            app:gaugeColor="@color/color_gauge_chart_02"
-                            app:baseGaugeColor="@color/color_base_gauge_chart_bg_02"
-                            android:layout_gravity="center" />
-
-                        <TextView
-                            android:layout_marginBottom="10dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            android:includeFontPadding="false"
-                            android:text="0 %"
-                            android:textColor="@color/white"
-                            android:textSize="13sp"
-                            android:id="@+id/tvPowerGenerationEfciency"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+                    android:src="@drawable/ic_power_status"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"/>
+                <TextView
+                    android:layout_marginStart="3dp"
+                    android:text="Power Status"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:id="@+id/tvPoworStatusTitle"
+                    app:layout_constraintStart_toEndOf="@id/ivPowerStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginStart="3dp"
+                    android:text="(현재발전기준 : INV)"
+                    android:textColor="@color/color_02"
+                    android:textSize="9sp"
+                    app:layout_constraintTop_toTopOf="@id/tvPoworStatusTitle"
+                    app:layout_constraintBottom_toBottomOf="@id/tvPoworStatusTitle"
+                    android:id="@+id/tvPoworStatusSubTitle"
+                    app:layout_constraintStart_toEndOf="@id/tvPoworStatusTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-
-
-
-
             <androidx.constraintlayout.widget.ConstraintLayout
-                app:layout_constraintTop_toBottomOf="@id/group2Layout"
+                android:id="@+id/chart2Laout"
+                android:paddingTop="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/group2TitleArea"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_width="match_parent"
                 android:layout_height="0dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:background="@drawable/bg_data_power_generation__03"
-                    android:id="@+id/powerGLayout"
-                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/alarmLayout"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:id="@+id/chart1Layout"
+                    app:layout_constraintEnd_toStartOf="@id/chart2Layout"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent">
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/powerGenerationGroup"
+                    android:layout_height="0dp">
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintVertical_chainStyle="packed"
                         app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginBottom="10dp"
+                        android:includeFontPadding="false"
+                        app:layout_constraintBottom_toTopOf="@id/groupChart1"
+                        android:text="인버터(DC/AC)변환효율"
+                        android:textColor="@color/color_3"
+                        android:textSize="14sp"
+                        android:id="@+id/tvInverterPerTitle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        app:layout_constraintTop_toBottomOf="@id/tvInverterPerTitle"
+                        android:id="@+id/groupChart1"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         android:layout_width="0dp"
-                        android:layout_height="18dp">
-                        <ImageView
-                            android:id="@+id/ivPowerGeneration"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            android:layout_marginStart="10dp"
-                            android:src="@drawable/ic_graph"
-                            android:layout_width="10dp"
-                            android:layout_height="10dp"/>
-                        <TextView
-                            android:layout_marginStart="3dp"
-                            android:includeFontPadding="false"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            android:text="발전량 추이"
-                            android:textColor="@color/white"
-                            android:textSize="8sp"
-                            android:id="@+id/tvPowerGenerationTitle"
-                            app:layout_constraintStart_toEndOf="@id/ivPowerGeneration"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            android:id="@+id/chartPowerGenerationBtnLayout"
-                            android:layout_marginStart="10dp"
-                            app:layout_constraintStart_toEndOf="@id/tvPowerGenerationTitle"
-                            android:layout_width="134dp"
-                            android:layout_height="wrap_content">
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                android:id="@+id/btnRealTImeChart"
-                                android:layout_width="29dp"
-
-                                android:layout_height="wrap_content">
-                                <TextView
-                                    android:text="실시간"
-                                    android:textColor="@color/color_6"
-                                    android:textSize="5sp"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    android:id="@+id/tvRealTImeChart"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"/>
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintStart_toEndOf="@id/btnRealTImeChart"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                android:id="@+id/btnTodayChart10Min"
-                                android:layout_width="52dp"
-
-                                android:layout_height="wrap_content">
-                                <TextView
-                                    android:gravity="center"
-                                    android:text="금일(예:10Min,순시값)"
-                                    android:textColor="@color/color_6"
-                                    android:textSize="5sp"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    android:id="@+id/tvTodayChart10Min"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"/>
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintStart_toEndOf="@id/btnTodayChart10Min"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                android:id="@+id/btnTodayChartHour"
-                                android:layout_width="30dp"
-
-                                android:layout_height="wrap_content">
-                                <TextView
-                                    android:text="금일(1 Hour)"
-                                    android:textColor="@color/white"
-                                    android:textSize="5sp"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    android:id="@+id/tvTodayChartHour"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"/>
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintStart_toEndOf="@id/btnTodayChartHour"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                android:id="@+id/btnTodayChartMonth"
-                                android:layout_width="30dp"
-
-                                android:layout_height="wrap_content">
-                                <TextView
-                                    android:text="1달(Day)"
-                                    android:textColor="@color/color_6"
-                                    android:textSize="5sp"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    android:id="@+id/tvTodayChartMonth"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"/>
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        app:layout_constraintTop_toBottomOf="@id/powerGenerationGroup"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        android:id="@+id/chartPowerGeneration"
-                        android:layout_width="match_parent"
                         android:layout_height="0dp">
+                        <com.bluetooth.chart.module.chart.GaugeViewChart
+                            android:id="@+id/chart1"
 
-                        <com.github.mikephil.charting.charts.CombinedChart
-                            android:id="@+id/chart4"
+                            android:layout_marginBottom="20dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:gaugeColor="@color/color_gauge_chart"
+                            app:baseGaugeColor="@color/color_base_gauge_chart_bg"
+                            android:layout_gravity="center" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:layout_marginBottom="30dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:includeFontPadding="false"
+                        android:text="0 %"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:id="@+id/tvInverterPer"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    app:layout_constraintStart_toEndOf="@id/chart1Layout"
+                    app:layout_constraintEnd_toStartOf="@id/chart3Layout"
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/chart2Layout"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginBottom="10dp"
+                        android:includeFontPadding="false"
+                        app:layout_constraintBottom_toTopOf="@id/groupChart2"
+                        android:text="현재발전출력"
+                        android:textColor="@color/color_4"
+                        android:textSize="14sp"
+                        android:id="@+id/tvCurrentPowerOutputTitle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        app:layout_constraintTop_toBottomOf="@id/tvCurrentPowerOutputTitle"
+                        android:id="@+id/groupChart2"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp">
+                        <com.bluetooth.chart.module.chart.GaugeViewChart
+                            android:id="@+id/chart2"
+
+                            android:layout_marginBottom="20dp"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"/>
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:gaugeColor="@color/color_gauge_chart_02"
+                            app:baseGaugeColor="@color/color_base_gauge_chart_bg_02"
+                            android:layout_gravity="center" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:layout_marginBottom="30dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:includeFontPadding="false"
+                        android:text="0 kW"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:id="@+id/tvCurrentPowerOutputPer"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/chart2Layout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/chart3Layout"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginBottom="10dp"
+                        android:includeFontPadding="false"
+                        app:layout_constraintBottom_toTopOf="@id/groupChart3"
+                        android:text="발전효율"
+                        android:textColor="@color/color_5"
+                        android:textSize="14sp"
+                        android:id="@+id/tvPowerGenerationEfciencyTitle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        app:layout_constraintTop_toBottomOf="@id/tvPowerGenerationEfciencyTitle"
+                        android:id="@+id/groupChart3"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp">
+                        <com.bluetooth.chart.module.chart.GaugeViewChart
+                            android:id="@+id/chart3"
+
+                            android:layout_marginBottom="20dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:gaugeColor="@color/color_gauge_chart_03"
+                            app:baseGaugeColor="@color/color_base_gauge_chart_bg_03"
+                            android:layout_gravity="center" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:layout_marginBottom="30dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:includeFontPadding="false"
+                        android:text="0 %"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:id="@+id/tvPowerGenerationEfciency"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/chart4Group"
+            app:layout_constraintVertical_bias="0.5"
+            app:layout_constraintVertical_weight="1"
+            app:layout_constraintTop_toBottomOf="@id/group2Layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:background="@drawable/bg_data_power_generation__03"
+                android:id="@+id/powerGLayout"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/alarmLayout"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintHorizontal_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/powerGenerationGroup"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="0dp"
+                    android:layout_height="18dp">
+                    <ImageView
+                        android:id="@+id/ivPowerGeneration"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/ic_graph"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"/>
+                    <TextView
+                        android:layout_marginStart="3dp"
+                        android:includeFontPadding="false"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="발전량 추이"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        android:id="@+id/tvPowerGenerationTitle"
+                        app:layout_constraintStart_toEndOf="@id/ivPowerGeneration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:id="@+id/chartPowerGenerationBtnLayout"
+                        android:layout_marginStart="35dp"
+                        app:layout_constraintStart_toEndOf="@id/tvPowerGenerationTitle"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="50dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:id="@+id/btnRealTImeChart"
+                            android:layout_width="0dp"
+                            app:layout_constraintHorizontal_weight="0.7"
+            app:layout_constraintEnd_toStartOf="@id/btnTodayChart10Min"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:text="실시간"
+                                android:textColor="@color/color_6"
+                                android:textSize="7sp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:id="@+id/tvRealTImeChart"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/btnRealTImeChart"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:id="@+id/btnTodayChart10Min"
+                            android:layout_width="0dp"
+app:layout_constraintEnd_toStartOf="@id/btnTodayChartHour"
+                            app:layout_constraintHorizontal_weight="1.4"
+
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:gravity="center"
+                                android:text="금일(예:10Min,순시값)"
+                                android:textColor="@color/color_6"
+                                android:textSize="7sp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:id="@+id/tvTodayChart10Min"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/btnTodayChart10Min"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:id="@+id/btnTodayChartHour"
+                            app:layout_constraintHorizontal_weight="0.8"
+                            android:layout_width="0dp"
+                            app:layout_constraintEnd_toStartOf="@id/btnTodayChartMonth"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:text="금일(1 Hour)"
+                                android:textColor="@color/white"
+                                android:textSize="7sp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:id="@+id/tvTodayChartHour"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/btnTodayChartHour"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:id="@+id/btnTodayChartMonth"
+                            android:layout_width="0dp"
+                            app:layout_constraintHorizontal_weight="0.8"
+
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:text="1달(Day)"
+                                android:textColor="@color/color_6"
+                                android:textSize="7sp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:id="@+id/tvTodayChartMonth"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:background="@drawable/bg_data_alarms_04"
-                    android:id="@+id/alarmLayout"
-                    app:layout_constraintStart_toEndOf="@id/powerGLayout"
+                    app:layout_constraintTop_toBottomOf="@id/powerGenerationGroup"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent">
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/groupAlarm"
-                        app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:id="@+id/chartPowerGeneration"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp">
+
+                    <com.github.mikephil.charting.charts.CombinedChart
+                        android:id="@+id/chart4"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintHorizontal_chainStyle="spread"
-                        android:layout_width="0dp"
-                        android:layout_height="18dp">
-                        <ImageView
-                            android:id="@+id/ivAlarm"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            android:layout_marginStart="10dp"
-                            android:src="@drawable/ic_alarms"
-                            android:layout_width="10dp"
-                            android:layout_height="10dp"/>
-                        <TextView
-                            android:includeFontPadding="false"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            android:text="알람"
-                            android:textColor="@color/white"
-                            android:textSize="8sp"
-                            android:id="@+id/tvAlarmTitle"
-                            app:layout_constraintStart_toEndOf="@id/ivAlarm"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                    <ImageView
-                        android:id="@+id/ivExst"
-                        app:layout_constraintTop_toTopOf="@id/groupAlarm"
-                        app:layout_constraintBottom_toBottomOf="@id/groupAlarm"
                         app:layout_constraintEnd_toEndOf="parent"
-                        android:layout_marginEnd="10dp"
-                        android:src="@drawable/ic_exit"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:background="@drawable/bg_data_alarms_04"
+                android:id="@+id/alarmLayout"
+                app:layout_constraintStart_toEndOf="@id/powerGLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="0dp"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintHorizontal_weight="1"
+                android:layout_height="match_parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/groupAlarm"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    android:layout_width="0dp"
+                    android:layout_height="18dp">
+                    <ImageView
+                        android:id="@+id/ivAlarm"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/ic_alarms"
                         android:layout_width="10dp"
                         android:layout_height="10dp"/>
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <TextView
+                        android:includeFontPadding="false"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="알람"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        android:id="@+id/tvAlarmTitle"
+                        app:layout_constraintStart_toEndOf="@id/ivAlarm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/ivExst"
+                    app:layout_constraintTop_toTopOf="@id/groupAlarm"
+                    app:layout_constraintBottom_toBottomOf="@id/groupAlarm"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_exit"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"/>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_marginTop="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    app:layout_constraintTop_toBottomOf="@id/groupAlarm"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp">
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:text="GRID CONNECT"
+                        android:textSize="15sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/gradient_color_01"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        android:id="@+id/gridConnectBtn"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/upsStandAloneBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:textStyle="bold"
                         android:layout_marginTop="5dp"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        app:layout_constraintTop_toBottomOf="@id/groupAlarm"
+                        android:text="UPS STAND ALONE"
+                        android:textSize="15sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/gradient_color_02"
+
+                        android:id="@+id/upsStandAloneBtn"
+                        app:layout_constraintTop_toBottomOf="@id/gridConnectBtn"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp">
-
-                        <TextView
-                            android:textStyle="bold"
-                            android:gravity="center"
-                            android:text="GRID CONNECT"
-                            android:textSize="13sp"
-                            android:textColor="@color/white"
-                            android:background="@drawable/gradient_color_01"
-                            app:layout_constraintVertical_chainStyle="packed"
-                            android:id="@+id/gridConnectBtn"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintBottom_toTopOf="@id/upsStandAloneBtn"
-                            android:layout_width="match_parent"
-                            android:layout_height="30dp"/>
-                        <TextView
-                            android:gravity="center"
-                            android:textStyle="bold"
-                            android:layout_marginTop="5dp"
-                            android:text="UPS STAND ALONE"
-                            android:textSize="13sp"
-                            android:textColor="@color/white"
-                            android:background="@drawable/gradient_color_02"
-
-                            android:id="@+id/upsStandAloneBtn"
-                            app:layout_constraintTop_toBottomOf="@id/gridConnectBtn"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            android:layout_width="match_parent"
-                            android:layout_height="30dp"/>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+        <!--<androidx.core.widget.NestedScrollView
+            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintVertical_weight="1"
+            app:layout_constraintTop_toBottomOf="@id/group1Layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbarSize="2dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
