@@ -1,0 +1,11 @@
+<!-- res/drawable/gradient_button.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <!-- 그라데이션 설정 -->
+    <gradient
+        android:startColor="#5C5A59"
+        android:endColor="#8F8E8D"
+        android:angle="90"/>         <!-- 그라데이션 각도 (0: 왼쪽, 90: 위, 180: 오른쪽, 270: 아래) -->
+
+    <!-- 모서리 둥글게 -->
+    <corners android:radius="5dp"/>
+</shape>

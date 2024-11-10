@@ -125,7 +125,7 @@ class BlueToothDetailChartActivity : AppCompatActivity() {
     }
 
     private fun setupUI() {
-       resetDataDisplay()
+        resetDataDisplay()
         //하단 오론쪽 ic_exit 이미지 버튼 이벤트
         binding.ivExst.setOnClickListener {
             finish()
@@ -352,12 +352,12 @@ class BlueToothDetailChartActivity : AppCompatActivity() {
         binding.tvCurrentOutPut.text = "0.0" //현재 출력 textView
         binding.tvTodayPower.text = "0.0" //금일 발전량 textView
         binding.tvTodayPowerTime.text = "0" //금일발전시간 textView
-        binding.chart1.value = 0f //인버터(DC/AC)변환효율 차트 value값
-        binding.tvInverterPer.text = "0%" //인버터(DC/AC)변환효율 textView
-        binding.chart2.value = 0f //현재발전출력 차트값
-        binding.tvCurrentPowerOutputPer.text = "0%" //현재발전출력 textView
-        binding.chart3.value = 0f  //발전효율 차트
-        binding.tvPowerGenerationEfciency.text = "0%" //발전효율 textView
+        binding.chart1.value = 0f //GRID VOLTAGE 차트 value값
+        binding.tvInverterPer.text = "0V" //GRID VOLTAGE textView
+        binding.chart2.value = 0f //LOAD POWER 차트값
+        binding.tvCurrentPowerOutputPer.text = "0W" //LOAD POWER textView
+        binding.chart3.value = 0f  //피크전력 감지 계통연계 주입 전류 차트
+        binding.tvPowerGenerationEfciency.text = "0A" //피크전력 감지 계통연계 주입 전류 textView
 
         dailyFourthDataList.clear()
     }
@@ -448,38 +448,45 @@ class BlueToothDetailChartActivity : AppCompatActivity() {
         val thirdData = data[2] //3번 데이터
         val fourthData = data[3] //4번 데이터
 
-        // 첫 번째 데이터 표시
-        val number = firstData.toDouble()
+        // 첫 번째 데이터 표시 GRID VOLTAGE
+        var number = firstData.toDouble()
+        if(number> 220.0){
+            number = 200.0
+        }
         val rounded = (number * 10).roundToInt() / 10.0 // 소수 첫째 자리만
 
-        val number2 = thirdData.toDouble()
+        //LOAD POWER
+        var number2 = thirdData.toDouble()
+        if(number2 > 3100.0){
+            number2 = 3100.0
+        }
         val rounded2 = (number2 * 10).roundToInt() / 10.0 //3번데이터 소수 첫째 자리만
 
 
         //2024.10.27 데이터값 1번 차트값이 220보다 클경우 그래프 최대치 100%로
         var chart1Value :Float = 0f
         var chart2Value:Float =0f
-        if(firstData> 220){
+        if(firstData> 220.0f){
             chart1Value  = 100f
         }else{
-            chart1Value = firstData
+            chart1Value = (firstData / 220.0f) * 100.0f
         }
 
         //2024.10.27 데이터값 3번 값  627.12 보다 클경우 그래프 최대치 100%로
 
-        if(thirdData> 627.12){
+        if(thirdData> 3100.0f){
             chart2Value  = 100f
         }else{
-            chart2Value = thirdData
+            chart2Value = (thirdData / 3100.0f) * 100.0f
         }
 
-        binding.chart1.value = chart1Value //인버터(DC/AC)변환효율 차트값
-        binding.tvInverterPer.text = "$rounded %"  //인버터(DC/AC)변환효율 textView 값, 기획서 1번
+        binding.chart1.value = chart1Value //GRID VOLTAGE 차트값
+        binding.tvInverterPer.text = "$rounded V"  //GRID VOLTAGE textView 값, 기획서 1번
 
         // 세 번째 데이터 표시
         binding.chart2.value = chart2Value
-        binding.tvCurrentPowerOutputPer.text = "$rounded2 kW" //현재 발전 출력 textView 값, 기획서 2번
-        binding.tvCurrentOutPut.text = "$rounded2" // 현재출력 textView값 기획서 2번
+        binding.tvCurrentPowerOutputPer.text = "$rounded2 W" //LOAD POWER textView 값, 기획서 2번
+        binding.tvCurrentOutPut.text = "$rounded2" // LOAD POWER textView값 기획서 2번
 
         // 네 번째 데이터 비율 계산
         //2024.10.27  차트 3 번관련해서 1번데이터값이 220보다 크냐 작냐에 따라 서 계산하도록 처리
@@ -494,8 +501,8 @@ class BlueToothDetailChartActivity : AppCompatActivity() {
         }
         val rounded3 = (efficiency * 10).roundToInt() / 10.0
 
-        binding.chart3.value = efficiency //발전효율 차트값
-        binding.tvPowerGenerationEfciency.text = "$rounded3 %" //발전효율 텍스트값 기획서 3번
+        binding.chart3.value = efficiency //피크전력 감지 계통연계 주입전류 차트값
+        binding.tvPowerGenerationEfciency.text = "$rounded3 A" //피크전력 감지 계통연계 주입전류 기획서 3번
 
         // 네 번째 데이터 평균 계산
         dailyFourthDataList.add(fourthData)
@@ -558,10 +565,10 @@ class BlueToothDetailChartActivity : AppCompatActivity() {
     private fun updateButtonColors(firstData: Float) {
         if (firstData > 0) {
             binding.gridConnectBtn.setBackgroundResource(R.drawable.gradient_color_01)
-            binding.upsStandAloneBtn.setBackgroundResource(R.drawable.gradient_color_02)
+            binding.upsStandAloneBtn.setBackgroundResource(R.drawable.gradient_color_03)
         } else {
-            binding.gridConnectBtn.setBackgroundResource(R.drawable.gradient_color_02)
-            binding.upsStandAloneBtn.setBackgroundResource(R.drawable.gradient_color_01)
+            binding.gridConnectBtn.setBackgroundResource(R.drawable.gradient_color_03)
+            binding.upsStandAloneBtn.setBackgroundResource(R.drawable.gradient_color_02)
         }
     }
 
